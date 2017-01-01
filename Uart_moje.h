@@ -19,7 +19,7 @@
 
 //Initialize uart0 with given baudrate.
 //Used pins: P0.2- tx, P0.3- rx.
-void Set_Uart0(int BaudRate);
+void Set_Uart0(int BaudRate, int enableDisable);
 
 
 void UartTest(void);

@@ -9,9 +9,9 @@
 uint8_t rxBuf[16] = { 0 }; /** UART0 receive data buf */
 uint32_t rxCnt = 0;
 volatile Bool rxFlag = FALSE;
-
+int enable=1;
 //Set Uart0
-void Set_Uart0(int BaudRate) {
+void Set_Uart0(int BaudRate,int enableDisable) {
 	/** System init */
 	//SystemInit();
 	//SystemCoreClockUpdate();
@@ -23,6 +23,7 @@ void Set_Uart0(int BaudRate) {
 	/*
 	 * Initialize UART0 pin connect
 	 */
+	enable=enableDisable;
 	PinCfg.Funcnum = 1;
 	PinCfg.OpenDrain = 0;
 	PinCfg.Pinmode = 0;
@@ -206,13 +207,13 @@ void Uart_PutDouble(LPC_UART_TypeDef* UARTx, double num) { //Example: Uart_PutDo
 }
 
 void Uart0_Print(const char *pFormat, ...) {
-
+if (enable){
 	va_list ap;
 	va_start(ap, pFormat);
 	static char retnum[MessageMaxSize];
 	vsnprintf(retnum, MessageMaxSize, pFormat, ap);
 	Uart_PutString(LPC_UART0, (uint8_t*) retnum);
 	va_end(ap);
-
+}
 
 }

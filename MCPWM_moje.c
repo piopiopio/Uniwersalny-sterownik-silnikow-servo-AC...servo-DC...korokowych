@@ -11,9 +11,9 @@
 #include <ADC_moje.h>
 
 
-int aDir = 0;
+int aDir = -1;
 
-int bDir = 0;
+int bDir = -1;
 
 //Set rage of values for stepper motor.
 int stepperMotorValuesRange[2] =
@@ -86,7 +86,7 @@ void Change_MCPWM(double frequency, int* amplitude)
 	if (_typeOfOutput == 's')
 	{//TODO: Robi³em zmiany dla silnika krokowego które wp³yne³y na wyjscie sine, uaktualnic.
 		//Set new amplitude value from range <0, SIN_TAB_RESOLUTION/2>
-		_valuesRange = 2*amplitude[0];
+		//_valuesRange = 2*amplitude[0];
 
 		//Change timer value to generate set frequency.
 		LPC_TIM1->MR0 = (int) (round(
@@ -132,13 +132,13 @@ void StepperMotorCommutation()
 		{
 		case 0:
 			//A-;B-
-			aDir = 0;
-			bDir = 0;
+			aDir = -1;
+			bDir = -1;
 			break;
 
 		case 1:
 			//A-;B+
-			aDir = 0;
+			aDir = -1;
 			bDir = 1;
 			break;
 
@@ -151,7 +151,7 @@ void StepperMotorCommutation()
 		case 3:
 			//A+;B-
 			aDir = 1;
-			bDir = 0;
+			bDir = -1;
 			break;
 
 		default:

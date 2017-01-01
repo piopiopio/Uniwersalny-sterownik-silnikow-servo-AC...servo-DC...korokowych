@@ -12,7 +12,7 @@
 
 char typeOfOutput='k';
 double frequency=1;
-int valuesRange=255;
+int valuesRange=254;
 
 volatile uint32_t ADCValue[8];
 
@@ -22,17 +22,15 @@ int main(void)
 	Set_Timer1(frequency, typeOfOutput, SIN_TAB_quantity );
 	Set_StepDir();
 	Set_QEI(2000);
-	Set_Uart0(460800);
-	int historySampleQuantity=Set_ADC(4000, 3080, 2); //Ustawiona taka wysoka wartoæ overcurrent,  ¿eby nie wyzwalac blokady w czasie testow.
+	Set_Uart0(460800,1);
+	int historySampleQuantity=Set_ADC(300, 3080, 2); //Ustawiona taka wysoka wartoæ overcurrent,  ¿eby nie wyzwalac blokady w czasie testow.
 	Set_PIDcurrent(historySampleQuantity);
-
-
 
 
 	while (1)
 	{
 
-//		PrintThreePhaseMCPWMSettedOutput();
+
 //		Uart0_Print("%d\t", MovingAverage(1));
 //		Uart0_Print("%d\t", ADCValue[0]);
 //		Uart0_Print("%d\r\n", ADCValue[1]);

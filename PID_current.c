@@ -22,16 +22,15 @@ struct PID_parameters
 	int y;
 };
 
-int PID_LastResult[2]={0
-};
+int PID_LastResult[2]={0};
 
 //Create array of PID_parameters
 struct PID_parameters danePID[2] =
 {
-{ .Kp = 1, .Kd = 1, .Ki = 0.001, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
-		0, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 5000, .y=0 },
-{ .Kp = 1, .Kd = 1, .Ki = 0.001, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
-		0, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 5000, .y=0 } };
+{ .Kp = 0.02, .Kd = 1, .Ki = 0.001, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
+		0, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 3080, .y=0 },
+{ .Kp = 0.02, .Kd = 1, .Ki = 0.001, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
+		0, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 3080, .y=0 } };
 
 void Set_PIDcurrent(int _historySampleQuantity)
 {
@@ -110,6 +109,6 @@ void StartCurrentPID()
 
 	Uart0_Print("\n\ry1: %d\t ",PID_LastResult[0]);
 	Uart0_Print("y2: %d\n\r ",PID_LastResult[1]);
-
+	PrintThreePhaseMCPWMSettedOutput();
 	Change_MCPWM(1,PID_LastResult);
 }
