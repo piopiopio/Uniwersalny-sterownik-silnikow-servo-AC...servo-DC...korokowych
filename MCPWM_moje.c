@@ -17,7 +17,8 @@ int bDir = -1;
 
 //Set rage of values for stepper motor.
 int stepperMotorValuesRange[2] =
-{ 255, 255 };
+{ 254, 254 };
+//TODO
 
 //Set outputs type: sin wave, stepper motor.
 char _typeOfOutput = 's';
@@ -59,15 +60,18 @@ int Set_MCPWM(char typeOfOutput, double frequency, int sineValuesRange)
 	//LPC_PINCON->PINMODE3|=(1<<10) | (1<<11);
 	LPC_MCPWM->MCINTEN_SET |= (1 << 15);
 
-	// Set the Limit register (MCLIM0-2 is named as MCPER0-2 in CMSIS source file)
+//	// Set the Limit register (MCLIM0-2 is named as MCPER0-2 in CMSIS source file)
 	LPC_MCPWM->MCPER0 = SIN_TAB_RESOLUTION;
 	LPC_MCPWM->MCPER1 = SIN_TAB_RESOLUTION;
 	LPC_MCPWM->MCPER2 = SIN_TAB_RESOLUTION;
+
 
 	//  Start MCPWM channels 1 and 2 and POLA = 1,Set dead-time feature on.
 	LPC_MCPWM->MCCON_CLR = 0xffffffff;
 	LPC_MCPWM->MCCON_SET = (1 << 0) | (1 << 8) | (1 << 16) | (1 << 3)
 			| (1 << 11) | (1 << 19) | (1 << 30);
+	LPC_MCPWM->MCCON_SET=(1<<2)|(1<<10);
+	//TODO: Doda³em zmiane polaryzacji sprawdzic LOCK_MCPWM()!!!
 
 	//Set dead-time for all channel
 	LPC_MCPWM->MCDEADTIME = (1 << 0) | (1 << 10) | (1 < 20);
@@ -97,6 +101,9 @@ void Change_MCPWM(double frequency, int* amplitude)
 	{
 		LPC_MCPWM->MCPW0 = _valuesRange/2 + amplitude[0] * aDir;
 		LPC_MCPWM->MCPW1 = _valuesRange/2 + amplitude[1] * bDir;
+
+
+
 	}
 
 }

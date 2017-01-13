@@ -47,8 +47,9 @@ void Set_Timer1(double frequency, char _typeOfOutput, int _SIN_TAB_quantity)
 
 	case 'k':
 		// Load timer value to generate timer frequency equal to 30kHz. CURRENT loop control frequency.
-		//LPC_TIM1->MR0=2000; //Tick's frequency 50kHz
-
+		//LPC_TIM1->MR0 = 200000000;// Tick after 2 second
+		//LPC_TIM1->MR0=2000; //Tick's frequency 50kHz, Tick after 0.00002 second
+		LPC_TIM1->MR0 = 40000;
 		break;
 
 	default:

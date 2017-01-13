@@ -6,8 +6,7 @@
 #include "math.h"
 #include "MCPWM_moje.h"
 
-
-volatile int adcSeriesDone=1;
+volatile int adcSeriesDone = 1;
 
 //OVER_CURRENT:
 
@@ -19,6 +18,9 @@ int zeroCurrent = 0;
 
 //Number of current measure inputs it can be: 0,1,2.
 int overCurrentInputs = 2;
+
+//Local control,
+int overCurrentFlag = 0;
 
 //MOVING_AVERAG:
 
@@ -32,10 +34,10 @@ int adcState = 2;
 int adcStateIterator = 0;
 
 //Iterator used to get adc measuring sequence: 0,1,2,0,1,3,0,1,4... . It is used locally in IncrementAdcStateIterator.
-int adcStateIteratorLocal=1;
+int adcStateIteratorLocal = 1;
 
 //Number of samples to count moving average.
-#define  historySampleQuantity 4
+#define  historySampleQuantity 40
 
 #define maxAdcInputs 8
 
@@ -74,8 +76,6 @@ int testResults[resultRange];
 
 //Expected test value, used to center testResults.
 int expectedLeastTestValue = 0;
-
-
 
 int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber)
 {
@@ -150,8 +150,8 @@ int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber)
 
 	//Enable interrupt in NVIC.
 	NVIC_EnableIRQ(ADC_IRQn);
-	NVIC_SetPriority(ADC_IRQn,2);
-	NVIC->ISER[0] = (1 << ((uint32_t)(22) & 0x1F));
+	NVIC_SetPriority(ADC_IRQn, 2);
+	NVIC->ISER[0] = (1 << ((uint32_t) (22) & 0x1F));
 
 	//Set P3.25 as GPIO- OverCurrent_LED.
 	LPC_PINCON->PINSEL7 &= ~((1 << 18) | (1 << 19));
@@ -161,7 +161,7 @@ int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber)
 
 	//Set high state onP3.25 .
 	LPC_GPIO3->FIOSET |= (1 << 25);
-return historySampleQuantity;
+	return historySampleQuantity;
 }
 
 void AdcValue(int adcInputNumber)
@@ -238,19 +238,44 @@ void CheckOverCurrent(int adcStateIterator)
 {
 	//Check if there was no overcurrent.
 
+//	if (adcStateIterator < overCurrentInputs)
+//	{
+//		//If this occur then set outputs to passive state.
+//		//TODO: Sprawdzac nie jeden pomiar a wszsytkie w historii.? Jesli tak to wywo³ywac raz podczas calej serii
+//
+//		if (((int) ADCValue[adcStateIterator] > (zeroCurrent + overCurrent))
+//				|| ((int) ADCValue[adcStateIterator]
+//						< (zeroCurrent - overCurrent)))
+//		{
+//			Lock_MCPWM();
+//
+//			//Set low state onP3.25 .
+//			LPC_GPIO3->FIOCLR |= (1 << 25);
+//		}
+//	}
+	overCurrentFlag = 1;
 	if (adcStateIterator < overCurrentInputs)
 	{
-		//If this occur then set outputs to passive state.
-		//TODO: uogolnic dla 0 i 1.-> Funkcja checkovercurrent
-		if (((int) ADCValue[adcStateIterator] > (zeroCurrent + overCurrent))
-				|| ((int) ADCValue[adcStateIterator]
-						< (zeroCurrent - overCurrent)))
-		{
-			Lock_MCPWM();
 
-			//Set low state onP3.25 .
-			LPC_GPIO3->FIOCLR |= (1 << 25);
+		for (int var = 0; var < historySampleQuantity; ++var)
+		{
+			if (((zeroCurrent - overCurrent)
+					< (int) ADCValueHistory[adcStateIterator][var])
+					&& ((int) ADCValueHistory[adcStateIterator][var]
+							< (zeroCurrent + overCurrent)))
+			{ //TODO: zmieni³em: teraz ca³¹ seria musi byæ overcurrent zeby wyzwolic blokade.
+				//All ADCValueHistory elements must be overcurrent to run protection.
+				//If one element of ADCValueHistory is not overcurrent there are no overcurrent protection.
+				overCurrentFlag = 0;
+			}
 		}
+	}
+	if (overCurrentFlag)
+	{
+		Lock_MCPWM();
+
+		//Set low state onP3.25 .
+		LPC_GPIO3->FIOCLR |= (1 << 25);
 	}
 }
 
@@ -279,8 +304,8 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 0);
-		adcStateIterator=0;
-		adcSeriesDone=1;
+		adcStateIterator = 0;
+		adcSeriesDone = 1;
 
 		//Print this text only to organize console.
 		//Uart0_Print("Kanal 000000000000000000000000\n\r");
@@ -310,7 +335,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 1);
-		adcStateIterator=1;
+		adcStateIterator = 1;
 
 		//Print this text only to organize console.
 		//Uart0_Print("Kanal 11111111111111111111111111\n\r");
@@ -323,7 +348,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 2);
-		adcStateIterator=2;
+		adcStateIterator = 2;
 		adcStateIteratorLocal = 0;
 		//Uart0_Print("Kanal 22222222222222222222222222222\n\r");
 
@@ -335,7 +360,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 3);
-		adcStateIterator=3;
+		adcStateIterator = 3;
 		adcStateIteratorLocal = 0;
 
 		//Start conversion now.
@@ -346,7 +371,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 4);
-		adcStateIterator=4;
+		adcStateIterator = 4;
 		adcStateIteratorLocal = 0;
 
 		//Start conversion now.
@@ -357,7 +382,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 5);
-		adcStateIterator=5;
+		adcStateIterator = 5;
 		adcStateIteratorLocal = 0;
 
 		//Start conversion now.
@@ -368,7 +393,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 6);
-		adcStateIterator=6;
+		adcStateIterator = 6;
 		adcStateIteratorLocal = 0;
 
 		//Start conversion now.
@@ -379,7 +404,7 @@ void IncrementAdcStateIterator()
 		//Select 0 channel
 		LPC_ADC->ADCR &= ~(0b11111111);
 		LPC_ADC->ADCR |= (1 << 7);
-		adcStateIterator=7;
+		adcStateIterator = 7;
 		adcStateIteratorLocal = 0;
 
 		//Start conversion now.
@@ -417,12 +442,12 @@ void TestADC(int numberOfSamples, int expectedLeastTestValue_)
 int MovingAverage(int adcInputNumber)
 { //TODO: Sprawdzic czy dzia³a dla róznychkana³óów
 
-	//Clear MovingAverageValue, sum values from [ADC0ValueHistory] and then divide by [historySampleQuantity].
+//	//Clear MovingAverageValue, sum values from [ADC0ValueHistory] and then divide by [historySampleQuantity].
 	MovingAverageValue[adcInputNumber] = 0;
-
-	//Check if ADC0ValueHistory fully initialized, if yes then sum all values from [ADC0ValueHistory].
-	if (ADC0ValueHistoryInicialized[adcInputNumber] == 1)
-	{
+//
+//	//Check if ADC0ValueHistory fully initialized, if yes then sum all values from [ADC0ValueHistory].
+//	if (ADC0ValueHistoryInicialized[adcInputNumber] == 1)
+//	{
 		for (int var = 0; var < historySampleQuantity; var++)
 		{
 			MovingAverageValue[adcInputNumber] =
@@ -430,50 +455,52 @@ int MovingAverage(int adcInputNumber)
 							+ ADCValueHistory[adcInputNumber][var];
 		}
 		//Divide sum of all values by historySampleQuantity.
-		MovingAverageValue[adcInputNumber] =
-				(int) round((double)MovingAverageValue[adcInputNumber]
+		MovingAverageValue[adcInputNumber] = (int) round(
+				(double) MovingAverageValue[adcInputNumber]
 						/ historySampleQuantity);
-	}
-
-	//Check if ADC0ValueHistory fully initialized, if no then sum [ADC_IRQHandlerIterator] values from [ADC0ValueHistory].
-	else
-	{
-		for (int var = 0; var < ADC_IRQHandlerIterator[adcInputNumber]; var++)
-		{
-			MovingAverageValue[adcInputNumber] =
-					MovingAverageValue[adcInputNumber]
-							+ ADCValueHistory[adcInputNumber][var];
-		}
-		//Divide sum of all values by ADC_IRQHandlerIterator.
-		MovingAverageValue[adcInputNumber] =
-				(int) round((double)MovingAverageValue[adcInputNumber]
-						/ ADC_IRQHandlerIterator[adcInputNumber]);
-	}
+//	}
+//
+//	//Check if ADC0ValueHistory fully initialized, if no then sum [ADC_IRQHandlerIterator] values from [ADC0ValueHistory].
+//	else
+//	{
+//		for (int var = 0; var < ADC_IRQHandlerIterator[adcInputNumber]; var++)
+//		{
+//			MovingAverageValue[adcInputNumber] =
+//					MovingAverageValue[adcInputNumber]
+//							+ ADCValueHistory[adcInputNumber][var];
+//		}
+//		//Divide sum of all values by ADC_IRQHandlerIterator.
+//		MovingAverageValue[adcInputNumber] = (int) round(
+//				(double) MovingAverageValue[adcInputNumber]
+//						/ ADC_IRQHandlerIterator[adcInputNumber]);
+//	}
 
 	return MovingAverageValue[adcInputNumber];
 }
 
-void RunAdcMeasurementSeries(int NumberOfSeriesToDo)
-{//TODO: Zmiana nazwy na co bardziej w stylu: Uruchom PID
-	//TODO: Zerowanie ADCHistor[0] oraz ADChistory[1]
+void RunAdcMeasurementSeries()
+{ //TODO: Zmiana nazwy na co bardziej w stylu: Uruchom PID
+//TODO: Zerowanie ADCHistor[0] oraz ADChistory[1]
 
-	for (int var = 0; var < NumberOfSeriesToDo; ++var)
+	for (int var = 0; var < historySampleQuantity; ++var)
 	{
 		while (adcSeriesDone == 0)
 		{
-		//Wait until end of first series
+			//Wait until end of first series
 		}
 
-		adcSeriesDone=0;
+		adcSeriesDone = 0;
 		//Start conversion now.
 		LPC_ADC->ADCR |= (1 << 24);
 
 	}
 	while (adcSeriesDone == 0)
 	{
-	//Wait until end of first series
+		//Wait until end of first series
 	}
 	//TODO: Wyzwalanie PID_current
+
+
 
 }
 
@@ -484,9 +511,6 @@ void ADC_IRQHandler(void)
 	//Stop adc conversion now until finish executing this routine.
 	LPC_ADC->ADCR &= ~(1 << 24);
 	AdcValue(adcStateIterator);
-
-	//Check if there was no overcurrent.
-	CheckOverCurrent(adcStateIterator);
 
 	//TestADC counting values.
 	if (testFlag && testPeriod)

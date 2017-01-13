@@ -23,7 +23,7 @@ int main(void)
 	Set_StepDir();
 	Set_QEI(2000);
 	Set_Uart0(460800,1);
-	int historySampleQuantity=Set_ADC(300, 3080, 2); //Ustawiona taka wysoka wartoæ overcurrent,  ¿eby nie wyzwalac blokady w czasie testow.
+	int historySampleQuantity=Set_ADC(4000, 2866, 2); //Ustawiona taka wysoka wartoæ overcurrent,  ¿eby nie wyzwalac blokady w czasie testow.
 	Set_PIDcurrent(historySampleQuantity);
 
 

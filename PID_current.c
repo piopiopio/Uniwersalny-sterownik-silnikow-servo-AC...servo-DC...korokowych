@@ -27,10 +27,10 @@ int PID_LastResult[2]={0};
 //Create array of PID_parameters
 struct PID_parameters danePID[2] =
 {
-{ .Kp = 0.02, .Kd = 1, .Ki = 0.001, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
-		0, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 3080, .y=0 },
-{ .Kp = 0.02, .Kd = 1, .Ki = 0.001, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
-		0, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 3080, .y=0 } };
+{ .Kp = 0.05, .Kd = 0, .Ki = 0.1, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
+		-127, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent =2070, .y=0 },
+{ .Kp = 1, .Kd = 0, .Ki = 0, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
+		-127, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 2600, .y=0 } };
 
 void Set_PIDcurrent(int _historySampleQuantity)
 {
@@ -99,16 +99,33 @@ double CurrentPID(int adcInputChannelNumber)
 void StartCurrentPID()
 {
 	//Start adc conversions,
-	RunAdcMeasurementSeries(historySampleQuantity);
+	RunAdcMeasurementSeries();
+	//Check if there was no overcurrent.
+	CheckOverCurrent(0);
+	CheckOverCurrent(1);
 
-
-	Uart0_Print("MovingAverage0: %d\t", MovingAverage(0));
-	Uart0_Print("MovingAverage1: %d", MovingAverage(1));
+	//Uart0_Print("MovingAverage0: %d\t", MovingAverage(0));
+	//Uart0_Print("MovingAverage1: %d\t", MovingAverage(1));
 	PID_LastResult[0]=CurrentPID(0);
 	PID_LastResult[1]=CurrentPID(1);
 
-	Uart0_Print("\n\ry1: %d\t ",PID_LastResult[0]);
-	Uart0_Print("y2: %d\n\r ",PID_LastResult[1]);
-	PrintThreePhaseMCPWMSettedOutput();
+
+	PID_LastResult[0]=110 ;//-127to127
+//	PID_LastResult[1]=0;
+	//Uart0_Print("y1: %d\t ",PID_LastResult[0]);
+	//Uart0_Print("y2: %d\t ",PID_LastResult[1]);
 	Change_MCPWM(1,PID_LastResult);
+
+
+
+	Uart0_Print("%d,", MovingAverage(0));
+
+//	for (int var = 0; var < 10; ++var) {
+//		Uart0_Print("%d,", ADCValueHistory[0][var]);
+//	}
+
+
+
+	PrintThreePhaseMCPWMSettedOutput();
+
 }

@@ -2,6 +2,8 @@
 #define ADC_MOJE_H_
 #include <stdint-gcc.h>
 
+volatile uint32_t ADCValue[8];
+int ADCValueHistory[8][40];//TODO: skasowac - ustawic getter
 //Set ADC, channel 0.
 //Argument 1.: "1"-overcurrent protection latch is on, "0"- overcurrent protection latch is off.
 //Argument 2.: Current value that will  trigger overcurrent protection. Both polarization are acceptable.
@@ -32,6 +34,6 @@ void CheckOverCurrent();
 void StepperMotorChangeAmplitude(int adcInputChannelNumber, int newAmplitude);
 
 //Do measurement, it can do [number of series to do] measurement. [0,1,2] or [0,1,3] etc.
-void RunAdcMeasurementSeries(int NumberOfSeriesToDo);
+void RunAdcMeasurementSeries();
 #endif /* ADC_H_ */
 
