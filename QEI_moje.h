@@ -5,7 +5,7 @@
 
 //Set up quadrature encoder interface, input argument: encoder resolution.
 //OUT_A(Black): P1.20
-//OUT_B (White): P1-23
+//OUT_B (White): P1.23
 //OUT_Z(Orange)- P1.24
 //GND(Blue): GND
 //VCC(Brown):	5v

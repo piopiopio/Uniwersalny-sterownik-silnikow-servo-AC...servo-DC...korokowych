@@ -12,7 +12,7 @@
 //Used pins: P1.19-MC0A; P1.25-MC1A; P1.28-MC2A.
 //Used pins: P1.22-MC0B; P1.26-MC1B; P1.29-MC2B.
 //Used pins: P1.21 MCABORT.
-int Set_MCPWM(char parameter, double frequency, int _sineValuesRange);
+int Set_MCPWM(char parameter, double frequency);
 
 //Change frequency of sinus wave and it's amplitude.
 //Amplitude value must be from range <0, SIN_TAB_RESOLUTION/2>
@@ -34,6 +34,8 @@ void StepperMotorCommutation();
 //Function responsible for printing setted PWM value on each of three MCPWM output.
 void PrintThreePhaseMCPWMSettedOutput();
 
+//Check if to mosfet output's in each half bridge are high in the same time.
+void  SecurityCheck();
 #endif
 
 

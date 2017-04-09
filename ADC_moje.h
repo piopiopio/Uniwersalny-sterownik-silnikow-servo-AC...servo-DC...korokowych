@@ -10,12 +10,12 @@ int ADCValueHistory[8][40];//TODO: skasowac - ustawic getter
 //Argument 3.: Measured value when non current flow.
 //Argument 4.: Number of used adc inputs, value from 0 to 7.
 //Used pins: P0.23- AD0.0(current A); P0.24- AD0.1(current B); P0.25 as AD0.2;
-//P0.26 as AD0.3; P1.30 as AD0.4; P1.33 as AD0.5; P0.03 as AD0.6; P1.30 as AD0.7.
+//P0.26 as AD0.3; P1.30 as AD0.4; P1.31 as AD0.5; P0.03 as AD0.6; P0.02 as AD0.7.
 //P3.25 OverCurrent_LED
 int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber);
 
 //Function return moving average of ADC measured values based on values in [ADC0ValueHistory].
-//Number of samples take into account is determined by macro [historySampleQuantity].
+//Number of samples take into account is determined by [historySampleQuantity].
 int MovingAverage(int adcInputNumber);
 
 //Function made to test ADC quality.

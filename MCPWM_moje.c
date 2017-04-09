@@ -10,6 +10,8 @@
 #include <Uart_moje.h>
 #include <ADC_moje.h>
 
+//Disable or enable adc (adc allowed only in high mcpwm output)
+int Lock_adc = 0;
 
 int aDir = -1;
 
@@ -17,8 +19,7 @@ int bDir = -1;
 
 //Set rage of values for stepper motor.
 int stepperMotorValuesRange[2] =
-{ 254, 254 };
-//TODO
+{ SIN_TAB_RESOLUTION, SIN_TAB_RESOLUTION };
 
 //Set outputs type: sin wave, stepper motor.
 char _typeOfOutput = 's';
@@ -31,12 +32,13 @@ int stepperMotorState = 0;
 int _valuesRange;
 
 //Amplitude
-int AmplitudeValue[3]={0};
+int AmplitudeValue[3] =
+{ 0 };
 
 //Error flag, when 1=driver blocked, 0-driver normal working.
 int errorLatch = 0;
 
-int Set_MCPWM(char typeOfOutput, double frequency, int sineValuesRange)
+int Set_MCPWM(char typeOfOutput, double frequency)
 {
 	//Set output type
 	_typeOfOutput = typeOfOutput;
@@ -65,42 +67,49 @@ int Set_MCPWM(char typeOfOutput, double frequency, int sineValuesRange)
 	LPC_MCPWM->MCPER1 = SIN_TAB_RESOLUTION;
 	LPC_MCPWM->MCPER2 = SIN_TAB_RESOLUTION;
 
-
 	//  Start MCPWM channels 1 and 2 and POLA = 1,Set dead-time feature on.
 	LPC_MCPWM->MCCON_CLR = 0xffffffff;
 	LPC_MCPWM->MCCON_SET = (1 << 0) | (1 << 8) | (1 << 16) | (1 << 3)
 			| (1 << 11) | (1 << 19) | (1 << 30);
-	LPC_MCPWM->MCCON_SET=(1<<2)|(1<<10);
+
+	//LPC_MCPWM->MCCON_SET=(1<<2)|(1<<10);
 	//TODO: Doda貫m zmiane polaryzacji sprawdzic LOCK_MCPWM()!!!
 
 	//Set dead-time for all channel
-	LPC_MCPWM->MCDEADTIME = (1 << 0) | (1 << 10) | (1 < 20);
+	LPC_MCPWM->MCDEADTIME = (1 << 1) | (1 << 2) | (1 << 10) | (1 < 20);
 
 	//Set amplitude value, from range <0, SIN_TAB_RESOLUTION/2>
-	_valuesRange = sineValuesRange;
+	_valuesRange = SIN_TAB_RESOLUTION;
 
-return SIN_TAB_quantity;
+//	//Enable interrupt:
+//		LPC_MCPWM->MCINTEN_SET = (0b11);
+//
+//		//Enable interrupt in NVIC.
+//		NVIC_EnableIRQ(MCPWM_IRQn);
+//		NVIC_SetPriority(MCPWM_IRQn, 10);
+
+	return SIN_TAB_quantity;
 }
 
 void Change_MCPWM(double frequency, int* amplitude)
 {
 	//AmplitudeValue=amplitude;
 
-	
 	if (_typeOfOutput == 's')
-	{//TODO: Robi貫m zmiany dla silnika krokowego kt鏎e wp造ne造 na wyjscie sine, uaktualnic.
-		//Set new amplitude value from range <0, SIN_TAB_RESOLUTION/2>
-		//_valuesRange = 2*amplitude[0];
+	{ //TODO: Robi貫m zmiany dla silnika krokowego kt鏎e wp造ne造 na wyjscie sine, uaktualnic.
+	  //Set new amplitude value from range <0, SIN_TAB_RESOLUTION/2>
+	  //_valuesRange = 2*amplitude[0];
 
-		//Change timer value to generate set frequency.
+	  //Change timer value to generate set frequency.
 		LPC_TIM1->MR0 = (int) (round(
 				1000000 / (frequency * (SIN_TAB_quantity - 1))));
 	}
 
 	else if (_typeOfOutput == 'k')
 	{
-		LPC_MCPWM->MCPW0 = _valuesRange/2 + amplitude[0] * aDir;
-		LPC_MCPWM->MCPW1 = _valuesRange/2 + amplitude[1] * bDir;
+		LPC_MCPWM->MCPW0 = _valuesRange / 2 + amplitude[0] * aDir;
+		LPC_MCPWM->MCPW1 = _valuesRange / 2 - amplitude[0] * aDir;
+		LPC_MCPWM->MCPW2 = _valuesRange / 2 + amplitude[1] * bDir;
 
 
 
@@ -248,3 +257,69 @@ void Unlock_MCPWM()
 	LPC_MCPWM->MCINTFLAG_CLR = (1 << 15);
 }
 
+void MCPWM_IRQHandler(void)
+{
+//	Lock_adc++;
+//	LPC_MCPWM->MCINTFLAG_CLR=(0b0);
+//	LPC_MCPWM->MCINTFLAG_CLR=(0b1);
+}
+
+void SecurityCheck()
+{
+	int error = 0;
+
+	if (((LPC_GPIO1->FIOPIN) & ((1 << 19) | (1 << 22)))==((1 << 19) | (1 << 22)))
+	{
+		Lock_MCPWM();
+		//Uart0_Print("MC0A and MC0B both high!");
+		error = 19022;
+
+	}
+
+	if (((LPC_GPIO1->FIOPIN) & ((1 << 25) | (1 << 26)))==((1 << 25) | (1 << 26)))
+	{
+		Lock_MCPWM();
+		//Uart0_Print("MC1A and MC1B both high!");
+		error = 25026;
+
+	}
+
+	if (((LPC_GPIO1->FIOPIN) & ((1 << 28) | (1 << 29)))==((1 << 28) | (1 << 29)))
+	{
+		Lock_MCPWM();
+		//Uart0_Print("MC2A and MC2B both high!");
+		error = 28029;
+
+	}
+
+	if (((LPC_GPIO3->FIOPIN) & ((1 << 25) | (1 << 26)))==((1 << 25) | (1 << 26)))
+	{
+		Lock_MCPWM();
+		//Uart0_Print("MC2A and MC2B both high!");
+		error = 325326;
+
+	}
+
+
+
+	if (error)
+	{
+		while (1)
+		{
+			//Uart0_Print("Error high state on two mosfet in halfbridge%d\n\r", error);
+			Uart0_Print("Short circuit!! \t");
+			Uart0_Print("%d\n\r", error);
+
+			//LPC_GPIO1->FIOCLR=(1<<28)|(1<<29);
+			//LPC_GPIO1->FIOCLR=(1<<22)|(1<<19);
+			//LPC_GPIO1->FIOCLR=(1<<25)|(1<<26);
+			LPC_PINCON->PINSEL3&=~((1<<25)|(1<<24)|(1<<26)|(1<<27)|(1<<7)|(1<<6)|(1<<13)|(1<<12)|(1<<19)|(1<<18)|(1<<20)|(1<<21));
+			LPC_GPIO1->FIODIR=(1<<25)|(1<<26)|(1<<22)|(1<<19)|(1<<28)|(1<<29);
+			LPC_GPIO1->FIOCLR=(1<<25)|(1<<26)|(1<<22)|(1<<19)|(1<<28)|(1<<29);
+
+			LPC_PINCON->PINSEL7&=~((1<<18)|(1<<19)|(1<<20)|(1<<21));
+			LPC_GPIO3->FIODIR=(1<<25)|(1<<26);
+			LPC_GPIO3->FIOCLR=(1<<25)|(1<<26);
+		}
+	}
+}

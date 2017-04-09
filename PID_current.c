@@ -110,22 +110,24 @@ void StartCurrentPID()
 	PID_LastResult[1]=CurrentPID(1);
 
 
-	PID_LastResult[0]=110 ;//-127to127
-//	PID_LastResult[1]=0;
+	//PID_LastResult[0]=-511;
+	//PID_LastResult[1]=511;
+
 	//Uart0_Print("y1: %d\t ",PID_LastResult[0]);
 	//Uart0_Print("y2: %d\t ",PID_LastResult[1]);
-	Change_MCPWM(1,PID_LastResult);
+
+	//Change_MCPWM(1,PID_LastResult);
 
 
 
-	Uart0_Print("%d,", MovingAverage(0));
-
+//	Uart0_Print("%d,", MovingAverage(0));
+//	Uart0_Print("%d,", MovingAverage(1));
 //	for (int var = 0; var < 10; ++var) {
 //		Uart0_Print("%d,", ADCValueHistory[0][var]);
 //	}
 
 
 
-	PrintThreePhaseMCPWMSettedOutput();
+	//PrintThreePhaseMCPWMSettedOutput();
 
 }

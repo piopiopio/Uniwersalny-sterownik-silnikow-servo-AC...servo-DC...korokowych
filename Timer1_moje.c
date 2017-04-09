@@ -81,7 +81,7 @@ void TIMER1_IRQHandler()
 	}
 	else if (_typeOfOutput == 'k')
 	{
-		StartCurrentPID();
+		//StartCurrentPID();
 	}
 
 }
