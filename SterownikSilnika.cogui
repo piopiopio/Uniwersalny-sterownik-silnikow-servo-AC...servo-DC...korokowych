@@ -17,21 +17,36 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/main.c" title="main.cpp" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/main.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="353" selectionTopPixel="133"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1011" selectionTopPixel="663"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ADC_moje.c" partName="ADC_moje.c" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/ADC_moje.c" title="ADC_moje.c" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/ADC_moje.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/ADC_moje.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="11478" selectionTopPixel="4862"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="MCPWM_moje.h" partName="MCPWM_moje.h" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/MCPWM_moje.h" title="MCPWM_moje.h" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/MCPWM_moje.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/MCPWM_moje.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="545" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ADC_moje.h" partName="ADC_moje.h" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/ADC_moje.h" title="ADC_moje.h" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/ADC_moje.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/ADC_moje.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="738" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="PID_current.c" partName="PID_current.c" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/PID_current.c" title="PID_current.c" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/PID_current.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/PID_current.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3298" selectionTopPixel="1119"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Timer1_moje.h" partName="Timer1_moje.h" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/Timer1_moje.h" title="Timer1_moje.h" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/Timer1_moje.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/Timer1_moje.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Timer1_moje.c" partName="Timer1_moje.c" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/Timer1_moje.c" title="Timer1_moje.c" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/Timer1_moje.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/Timer1_moje.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1830" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="MCPWM_moje.c" partName="MCPWM_moje.c" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/MCPWM_moje.c" title="MCPWM_moje.c" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/MCPWM_moje.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/MCPWM_moje.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3143" selectionTopPixel="544"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="startup_LPC17xx.c" partName="startup_LPC17xx.c" path="D:/CooCox/CoIDEn/workspace/SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c" title="startup_LPC17xx.c" tooltip="D:/CooCox/CoIDEn/workspace/SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c"/>
@@ -41,7 +56,7 @@
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
 <viewState>
-<ExpressionKeySet ExpKeys="_valuesRange / 2 + amplitude[0] * aDir,_valuesRange / 2 - amplitude[0] * bDir,_valuesRange / 2 + amplitude[1] * bDir,ADCValue[1],ADCValue[6],ADCValue[7],"/>
+<ExpressionKeySet ExpKeys="_valuesRange / 2 + amplitude[0] * aDir,_valuesRange / 2 - amplitude[0] * bDir,_valuesRange / 2 + amplitude[1] * bDir,"/>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ProgressView" partName="Progress">
@@ -56,7 +71,7 @@
 <element path="/SterownikSilnika"/>
 </expanded>
 <selection>
-<element path="/SterownikSilnika/Timer1_moje.c"/>
+<element path="/SterownikSilnika/main.cpp"/>
 </selection>
 </viewState>
 </view>
@@ -79,11 +94,10 @@
 <viewState/>
 </view>
 <view id="org.coocox.coassistant.view.CoAssistantView_debug" partName="Peripherals">
-<viewState horizontalPosition="0" verticalPosition="0">
-<selection>
-<element name="ADC"/>
+<viewState horizontalPosition="0" verticalPosition="10">
+<selection>&#x0A;<element name="MCPWM"/>
 </selection>
-<registerValues baseAddress="Base Address: 0x40034000" description="Description:  Analog-to-Digital Converter (ADC) "/>
+<registerValues baseAddress="Base Address: 0x400B8000" description="Description:  Motor Control PWM"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
@@ -91,8 +105,7 @@
 </view>
 <view id="org.coocox.coassistant.view.CoAssistantView" partName="Peripherals">
 <viewState horizontalPosition="0" verticalPosition="2">
-<selection>
-<element name="GPIO"/>
+<selection>&#x0A;<element name="GPIO"/>
 </selection>
 <registerValues baseAddress="Base Address: 0x2009C000" description="Description:  General Purpose I/O "/>
 </viewState>
@@ -132,16 +145,12 @@
 <view id="org.coocox.component.ui.ComponentView"/>
 <view id="org.coocox.coassistant.view.CoAssistantView"/>
 <view id="org.eclipse.debug.ui.ExpressionView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@168497f" orientation="256" selectedTabId="org.eclipse.search.ui.views.SearchView" style="0">
 <fastViews>
 <view id="org.eclipse.search.ui.views.SearchView" ratio="0.2996812"/>
 <view id="org.eclipse.ui.views.ProgressView" ratio="0.3"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@62b32a" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
-<fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2996812"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -181,7 +190,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1e07065" ratio="0.76140565" ratioLeft="1235" ratioRight="387" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1221adc">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1e07065" ratio="0.71983916" ratioLeft="1074" ratioRight="418" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1221adc">
 <folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
 <page content="org.coocox.coassistant.view.CoAssistantView" label="Peripherals"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
@@ -197,9 +206,11 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.44952178" ratioLeft="423" ratioRight="518" relationship="4" relative="org.eclipse.ui.internal.ViewStack@1221adc"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@62b32a" ratio="0.7089552" ratioLeft="665" ratioRight="273" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 </mainWindow>
@@ -247,8 +258,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
+<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <view id="org.eclipse.debug.ui.RegisterView"/>
 <view id="org.coocox.coassistant.view.CoAssistantView_debug"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
@@ -259,62 +270,43 @@
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <fastViewBars/>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@18716cc">
-<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
-<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@18716cc">&#x0A;<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.internal.ViewStack@18716cc">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1074" ratioRight="358" relationship="2" relative="org.eclipse.ui.internal.ViewStack@18716cc">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@12e8b9c" ratio="0.7590618" ratioLeft="712" ratioRight="226" relationship="4" relative="org.eclipse.ui.internal.ViewStack@18716cc">
-<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@12e8b9c" ratio="0.7590618" ratioLeft="712" ratioRight="226" relationship="4" relative="org.eclipse.ui.internal.ViewStack@18716cc">&#x0A;<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@19db16d" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.ui.internal.ViewStack@12e8b9c">
-<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@19db16d" ratio="0.5" ratioLeft="716" ratioRight="716" relationship="2" relative="org.eclipse.ui.internal.ViewStack@12e8b9c">&#x0A;<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
 <page content="org.coocox.component.ui.Help" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.VariableView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@13e7d19" ratio="0.6592022" ratioLeft="942" ratioRight="487" relationship="2" relative="org.eclipse.ui.internal.ViewStack@18716cc">
-<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13e7d19" ratio="0.6592022" ratioLeft="942" ratioRight="487" relationship="2" relative="org.eclipse.ui.internal.ViewStack@18716cc">&#x0A;<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
 <page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
 <page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e4f1c5" ratio="0.6929638" ratioLeft="650" ratioRight="288" relationship="4" relative="org.eclipse.ui.internal.ViewStack@13e7d19">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e4f1c5" ratio="0.6929638" ratioLeft="650" ratioRight="288" relationship="4" relative="org.eclipse.ui.internal.ViewStack@13e7d19">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
@@ -327,160 +319,163 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/MCPWM_moje.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/main.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/ADC_moje.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/ADC_moje.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/Timer1_moje.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/MCPWM_moje.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SterownikSilnika/MCPWM_moje.c"/>
 </editors>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="9451" y="0"/>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="2547" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="10837" y="0"/>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="2957" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11803" y="0"/>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="2547" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="3102" y="38"/>
+</item>
+<item historyLabel="startup_LPC17xx.c" index="2">
+<position info="not_deleted" x="8932" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="353" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="2957" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="3081" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="2957" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="3081" y="0"/>
+</item>
+<item historyLabel="startup_LPC17xx.c" index="2">
+<position info="not_deleted" x="8932" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="353" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="3081" y="0"/>
+</item>
+<item historyLabel="startup_LPC17xx.c" index="2">
+<position info="not_deleted" x="8932" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="353" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="939" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="992" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1060" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1146" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1261" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1351" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1467" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1591" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1633" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1675" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="1793" y="0"/>
+</item>
+<item historyLabel="startup_LPC17xx.c" index="2">
+<position info="not_deleted" x="8932" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="712" y="0"/>
+</item>
+<item historyLabel="startup_LPC17xx.c" index="2">
+<position info="not_deleted" x="8932" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="353" y="0"/>
+</item>
+<item historyLabel="MCPWM_moje.c" index="0">
+<position info="not_deleted" x="3081" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="353" y="0"/>
 </item>
 <item historyLabel="startup_LPC17xx.c" index="3">
 <position info="not_deleted" x="8932" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
+<item historyLabel="main.cpp" index="1">
 <position info="not_deleted" x="353" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11803" y="0"/>
+<item historyLabel="Timer1_moje.c" index="4">
+<position info="not_deleted" x="1830" y="0"/>
 </item>
-<item historyLabel="startup_LPC17xx.c" index="3">
-<position info="not_deleted" x="8932" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="247" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="10806" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="973" y="0"/>
 </item>
-<item historyLabel="startup_LPC17xx.c" index="3">
-<position info="not_deleted" x="8932" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="748" y="4"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="10806" y="0"/>
+<item historyLabel="MCPWM_moje.h" index="5">
+<position info="not_deleted" x="545" y="12"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
+<item historyLabel="MCPWM_moje.c" index="6">
+<position info="not_deleted" x="3081" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="10806" y="0"/>
+<item historyLabel="Timer1_moje.c" index="4">
+<position info="not_deleted" x="1830" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="9451" y="0"/>
+<item historyLabel="MCPWM_moje.h" index="5">
+<position info="not_deleted" x="545" y="12"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="2231" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
+<item historyLabel="MCPWM_moje.h" index="5">
+<position info="not_deleted" x="545" y="12"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="12014" y="0"/>
+<item historyLabel="MCPWM_moje.c" index="6">
+<position info="not_deleted" x="3081" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
+<item historyLabel="Timer1_moje.c" index="4">
+<position info="not_deleted" x="1830" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="3397" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2478" y="0"/>
+<item historyLabel="MCPWM_moje.h" index="5">
+<position info="not_deleted" x="545" y="12"/>
 </item>
-<item historyLabel="ADC_moje.h" index="1">
-<position info="not_deleted" x="738" y="0"/>
+<item historyLabel="MCPWM_moje.c" index="6">
+<position info="not_deleted" x="3081" y="0"/>
 </item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="3571" y="69"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2465" y="11"/>
-</item>
-<item historyLabel="startup_LPC17xx.c" index="3">
-<position info="not_deleted" x="8932" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="10106" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="9234" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="9212" y="20"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1713" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2232" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1421" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1713" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1942" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="10692" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2232" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11641" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="startup_LPC17xx.c" index="3">
-<position info="not_deleted" x="8932" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11641" y="0"/>
-</item>
-<item historyLabel="ADC_moje.h" index="1">
-<position info="not_deleted" x="738" y="0"/>
-</item>
-<item historyLabel="startup_LPC17xx.c" index="3">
-<position info="not_deleted" x="8932" y="0"/>
-</item>
-<item historyLabel="ADC_moje.h" index="1">
-<position info="not_deleted" x="738" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11641" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11478" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11478" y="0"/>
-</item>
-<item historyLabel="startup_LPC17xx.c" index="3">
-<position info="not_deleted" x="8932" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
-</item>
-<item historyLabel="ADC_moje.c" index="2">
-<position info="not_deleted" x="11478" y="0"/>
-</item>
-<item active="true" historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="353" y="0"/>
+<item active="true" historyLabel="main.cpp" index="1">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -492,17 +487,11 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_LPC17xx.c" tooltip="SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c">
 <persistable path="/SterownikSilnika/cmsis_boot/startup/startup_LPC17xx.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Timer1_moje.c" tooltip="SterownikSilnika/Timer1_moje.c">
-<persistable path="/SterownikSilnika/Timer1_moje.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADC_moje.h" tooltip="SterownikSilnika/ADC_moje.h">
-<persistable path="/SterownikSilnika/ADC_moje.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADC_moje.c" tooltip="SterownikSilnika/ADC_moje.c">
-<persistable path="/SterownikSilnika/ADC_moje.c"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="MCPWM_moje.c" tooltip="SterownikSilnika/MCPWM_moje.c">
 <persistable path="/SterownikSilnika/MCPWM_moje.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Timer1_moje.c" tooltip="SterownikSilnika/Timer1_moje.c">
+<persistable path="/SterownikSilnika/Timer1_moje.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Timer1_moje.h" tooltip="SterownikSilnika/Timer1_moje.h">
 <persistable path="/SterownikSilnika/Timer1_moje.h"/>
@@ -525,8 +514,14 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="QEI_moje.h" tooltip="SterownikSilnika/QEI_moje.h">
 <persistable path="/SterownikSilnika/QEI_moje.h"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADC_moje.h" tooltip="SterownikSilnika/ADC_moje.h">
+<persistable path="/SterownikSilnika/ADC_moje.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="QEI_moje.c" tooltip="SterownikSilnika/QEI_moje.c">
 <persistable path="/SterownikSilnika/QEI_moje.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADC_moje.c" tooltip="SterownikSilnika/ADC_moje.c">
+<persistable path="/SterownikSilnika/ADC_moje.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="Uwagi_montazowe" tooltip="SterownikSilnika/Uwagi_montazowe">
 <persistable path="/SterownikSilnika/Uwagi_montazowe"/>

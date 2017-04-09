@@ -118,12 +118,12 @@ int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber)
 	LPC_PINCON->PINSEL3 |= (1 << 31) | (1 << 30);
 
 	//Set P0.03 as AD0.6- ADC input; Pinsel0, Pins 7, 6 : 01.
-//	LPC_PINCON->PINSEL3 &= ~(1 << 6);
-//	LPC_PINCON->PINSEL3 |= (1 << 7);
+	//LPC_PINCON->PINSEL3 &= ~(1 << 28);
+	//LPC_PINCON->PINSEL3 |= (1 << 29);
 
-	//Set P0.02 as AD0.7- ADC input; Pinsel0, Pins 5,4 : 01.
-//	LPC_PINCON->PINSEL0 &= ~(1 << 4);
-//	LPC_PINCON->PINSEL0 |= (1 << 5);
+	//Set P1.30 as AD0.7- ADC input; Pinsel0, Pins 5,4 : 01.
+	//LPC_PINCON->PINSEL0 &= ~(1 << 5);
+	//LPC_PINCON->PINSEL0 |= (1 << 5);
 
 	//Turn off pull up and down AD0.0
 	LPC_PINCON->PINMODE1 |= (1 << 15);
@@ -132,14 +132,6 @@ int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber)
 	//Turn off pull up and down AD0.1
 	LPC_PINCON->PINMODE1 |= (1 << 17);
 	LPC_PINCON->PINMODE1 &= ~(1 << 16);
-
-	//Turn off pull up and down AD0.2
-//	LPC_PINCON->PINMODE1 |= (1 << 18);
-//	LPC_PINCON->PINMODE1 &= ~(1 << 19);
-
-	//Turn off pull up and down AD0.3
-//	LPC_PINCON->PINMODE1 |= (1 << 20);
-//	LPC_PINCON->PINMODE1 &= ~(1 << 21);
 
 	//Select channel 0.
 	LPC_ADC->ADCR |= (1 << 0);
@@ -162,7 +154,6 @@ int Set_ADC(int _overCurrent, int _zeroCurrent, int _adcInputsNuber)
 	NVIC->ISER[0] = (1 << ((uint32_t) (22) & 0x1F));
 
 	//Set P3.25 as GPIO- OverCurrent_LED.
-	//TODO: Zmienic- pin wykorzystany jako wyjscie dla silnika
 	LPC_PINCON->PINSEL7 &= ~((1 << 18) | (1 << 19));
 
 	//Set P3.25 direction.
