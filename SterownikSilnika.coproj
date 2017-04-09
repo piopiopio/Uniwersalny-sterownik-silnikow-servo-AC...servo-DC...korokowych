@@ -83,21 +83,21 @@
     <File name="lpc17xx_lib/include/lpc17xx_pinsel.h" path="lpc17xx_lib/include/lpc17xx_pinsel.h" type="1"/>
     <File name="MCPWM_moje.h" path="MCPWM_moje.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_nvic.h" path="lpc17xx_lib/include/lpc17xx_nvic.h" type="1"/>
-    <File name="StepDir_moje.h" path="StepDir_moje.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_libcfg_default.h" path="lpc17xx_lib/include/lpc17xx_libcfg_default.h" type="1"/>
     <File name="Uart_moje.c" path="Uart_moje.c" type="1"/>
+    <File name="StepDir_moje.h" path="StepDir_moje.h" type="1"/>
     <File name="ADC_moje.h" path="ADC_moje.h" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_uart.h" path="lpc17xx_lib/include/lpc17xx_uart.h" type="1"/>
     <File name="cmsis/core_cm3.h" path="cmsis/core_cm3.h" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_uart.h" path="lpc17xx_lib/include/lpc17xx_uart.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="PID_current.c" path="PID_current.c" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_clkpwr.c" path="lpc17xx_lib/source/lpc17xx_clkpwr.c" type="1"/>
     <File name="Uwagi_montazowe" path="Uwagi_montazowe" type="1"/>
     <File name="cmsis_boot/system_LPC17xx.c" path="cmsis_boot/system_LPC17xx.c" type="1"/>
     <File name="lpc17xx_lib/include/lpc17xx_gpio.h" path="lpc17xx_lib/include/lpc17xx_gpio.h" type="1"/>
-    <File name="Timer1_moje.h" path="Timer1_moje.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="Timer1_moje.h" path="Timer1_moje.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="PID_current.h" path="PID_current.h" type="1"/>
     <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
@@ -118,8 +118,8 @@
     <File name="lpc17xx_lib/include" path="" type="2"/>
     <File name="lpc17xx_lib/source/lpc17xx_gpio.c" path="lpc17xx_lib/source/lpc17xx_gpio.c" type="1"/>
     <File name="StepDir_moje.c" path="StepDir_moje.c" type="1"/>
-    <File name="lpc17xx_lib/include/lpc17xx_clkpwr.h" path="lpc17xx_lib/include/lpc17xx_clkpwr.h" type="1"/>
     <File name="QEI_moje.c" path="QEI_moje.c" type="1"/>
+    <File name="lpc17xx_lib/include/lpc17xx_clkpwr.h" path="lpc17xx_lib/include/lpc17xx_clkpwr.h" type="1"/>
     <File name="lpc17xx_lib/source/lpc17xx_uart.c" path="lpc17xx_lib/source/lpc17xx_uart.c" type="1"/>
     <File name="SIN_TAB.h" path="SIN_TAB.h" type="1"/>
     <File name="Timer1_moje.c" path="Timer1_moje.c" type="1"/>
