@@ -1,9 +1,13 @@
 #ifndef ADC_MOJE_H_
 #define ADC_MOJE_H_
+#define HISTORYSAMPLEQUANTITY 12
+#define maxAdcInputs 8
 #include <stdint-gcc.h>
+//Number of samples to count moving average.
 
-volatile uint32_t ADCValue[8];
-int ADCValueHistory[8][40];//TODO: skasowac - ustawic getter
+
+volatile uint32_t ADCValue[maxAdcInputs];
+int ADCValueHistory[maxAdcInputs][HISTORYSAMPLEQUANTITY];//TODO: skasowac - ustawic getter
 //Set ADC, channel 0.
 //Argument 1.: "1"-overcurrent protection latch is on, "0"- overcurrent protection latch is off.
 //Argument 2.: Current value that will  trigger overcurrent protection. Both polarization are acceptable.

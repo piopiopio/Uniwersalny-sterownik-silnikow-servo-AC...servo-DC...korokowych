@@ -13,9 +13,9 @@
 //Disable or enable adc (adc allowed only in high mcpwm output)
 int Lock_adc = 0;
 
-int aDir = -1;
-
-int bDir = -1;
+//int aDir = -1;
+//
+//int bDir = -1;
 
 //Set rage of values for stepper motor.
 int stepperMotorValuesRange[2] =
@@ -72,8 +72,7 @@ int Set_MCPWM(char typeOfOutput, double frequency)
 	LPC_MCPWM->MCCON_SET = (1 << 0) | (1 << 8) | (1 << 16) | (1 << 3)
 			| (1 << 11) | (1 << 19) | (1 << 30);
 
-	//LPC_MCPWM->MCCON_SET=(1<<2)|(1<<10);
-	//TODO: Doda³em zmiane polaryzacji sprawdzic LOCK_MCPWM()!!!
+
 
 	//Set dead-time for all channel
 	LPC_MCPWM->MCDEADTIME = (1 << 1) | (1 << 2) | (1 << 10) | (1 < 20);
@@ -91,7 +90,7 @@ int Set_MCPWM(char typeOfOutput, double frequency)
 	return SIN_TAB_quantity;
 }
 
-void Change_MCPWM(double frequency, int* amplitude)
+void Change_MCPWM(double frequency, int* amplitude, int* sign)
 {
 	//AmplitudeValue=amplitude;
 
@@ -107,9 +106,9 @@ void Change_MCPWM(double frequency, int* amplitude)
 
 	else if (_typeOfOutput == 'k')
 	{
-		LPC_MCPWM->MCPW0 = _valuesRange / 2 + amplitude[0] * aDir;
-		LPC_MCPWM->MCPW1 = _valuesRange / 2 - amplitude[0] * aDir;
-		LPC_MCPWM->MCPW2 = _valuesRange / 2 + amplitude[1] * bDir;
+		LPC_MCPWM->MCPW0 = _valuesRange / 2 + amplitude[0] * sign[0];
+		LPC_MCPWM->MCPW1 = _valuesRange / 2 - amplitude[0] * sign[0];//TODO: Zrobiæ 3 elementowy wektor
+		LPC_MCPWM->MCPW2 = _valuesRange / 2 + amplitude[1] * sign[1];
 
 
 
@@ -117,73 +116,73 @@ void Change_MCPWM(double frequency, int* amplitude)
 
 }
 
-void StepperMotorCommutation()
-{
-	//Check if step should be done.
-	if (stepDirPositionStepperMotor != 0)
-	{
-
-		//Check step direction direction.
-		if (stepDirPositionStepperMotor > 0)
-		{
-			stepperMotorState++;
-			stepDirPositionStepperMotor--;
-			if (stepperMotorState > 3)
-			{
-				stepperMotorState = 0;
-			}
-		}
-		else if (stepDirPositionStepperMotor < 0)
-		{
-			stepperMotorState--;
-			stepDirPositionStepperMotor++;
-			if (stepperMotorState < 0)
-			{
-				stepperMotorState = 3;
-			}
-		}
-
-		//Check up-to-date stepper motor state and do action.
-		switch (stepperMotorState)
-		{
-		case 0:
-			//A-;B-
-			aDir = -1;
-			bDir = -1;
-			break;
-
-		case 1:
-			//A-;B+
-			aDir = -1;
-			bDir = 1;
-			break;
-
-		case 2:
-			//A+;B+
-			aDir = 1;
-			bDir = 1;
-			break;
-
-		case 3:
-			//A+;B-
-			aDir = 1;
-			bDir = -1;
-			break;
-
-		default:
-			while (1)
-				;
-			break;
-		}
-
-	}
-	//TODO: CURRENT LIMITATION PID!!!
-
-	//Switch coils current, change direction
-	LPC_MCPWM->MCPW0 = stepperMotorValuesRange[0] * aDir;
-	LPC_MCPWM->MCPW1 = stepperMotorValuesRange[1] * bDir;
-
-}
+//void StepperMotorCommutation()
+//{
+//	//Check if step should be done.
+//	if (stepDirPositionStepperMotor != 0)
+//	{
+//
+//		//Check step direction direction.
+//		if (stepDirPositionStepperMotor > 0)
+//		{
+//			stepperMotorState++;
+//			stepDirPositionStepperMotor--;
+//			if (stepperMotorState > 3)
+//			{
+//				stepperMotorState = 0;
+//			}
+//		}
+//		else if (stepDirPositionStepperMotor < 0)
+//		{
+//			stepperMotorState--;
+//			stepDirPositionStepperMotor++;
+//			if (stepperMotorState < 0)
+//			{
+//				stepperMotorState = 3;
+//			}
+//		}
+//
+//		//Check up-to-date stepper motor state and do action.
+//		switch (stepperMotorState)
+//		{
+//		case 0:
+//			//A-;B-
+//			aDir = -1;
+//			bDir = -1;
+//			break;
+//
+//		case 1:
+//			//A-;B+
+//			aDir = -1;
+//			bDir = 1;
+//			break;
+//
+//		case 2:
+//			//A+;B+
+//			aDir = 1;
+//			bDir = 1;
+//			break;
+//
+//		case 3:
+//			//A+;B-
+//			aDir = 1;
+//			bDir = -1;
+//			break;
+//
+//		default:
+//			while (1)
+//				;
+//			break;
+//		}
+//
+//	}
+//	//TODO: CURRENT LIMITATION PID!!!
+//
+//	//Switch coils current, change direction
+//	LPC_MCPWM->MCPW0 = stepperMotorValuesRange[0] * aDir;
+//	LPC_MCPWM->MCPW1 = stepperMotorValuesRange[1] * bDir;
+//
+//}
 
 //void StepperMotorChangeAmplitude(int adcInputChannelNumber, int newAmplitude)
 //{
@@ -322,4 +321,24 @@ void SecurityCheck()
 			LPC_GPIO3->FIOCLR=(1<<25)|(1<<26);
 		}
 	}
+}
+
+void DoShortCircuit()
+{
+	//Test mosfet short circuit protection
+	//		LPC_PINCON->PINSEL3&=~((1<<25)|(1<<24)|(1<<26)|(1<<27));
+	//		LPC_GPIO1->FIODIR=(1<<28)|(1<<29);
+	//		LPC_GPIO1->FIOSET=(1<<28)|(1<<29);
+
+	//		LPC_PINCON->PINSEL3&=~((1<<7)|(1<<6)|(1<<13)|(1<<12));
+	//		LPC_GPIO1->FIODIR=(1<<22)|(1<<19);
+	//		LPC_GPIO1->FIOSET=(1<<22)|(1<<19);
+
+	//		LPC_PINCON->PINSEL3&=~((1<<19)|(1<<18)|(1<<20)|(1<<21));
+	//		LPC_GPIO1->FIODIR=(1<<25)|(1<<26);
+	//		LPC_GPIO1->FIOSET=(1<<25)|(1<<26);
+
+	//		LPC_PINCON->PINSEL7&=~((1<<18)|(1<<19)|(1<<20)|(1<<21));
+	//		LPC_GPIO3->FIODIR=(1<<25)|(1<<26);
+	//		LPC_GPIO3->FIOSET=(1<<25)|(1<<26);
 }

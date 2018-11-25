@@ -2,7 +2,7 @@
 #define __TIMER1_MOJE_H__
 
 #include <stdint.h>
-
+#include <ADC_moje.h>
 
 unsigned int getPrescalarForUs(uint8_t timerPclkBit);
 

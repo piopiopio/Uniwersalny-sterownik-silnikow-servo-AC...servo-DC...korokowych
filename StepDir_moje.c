@@ -27,26 +27,26 @@ void Set_StepDir()
 
 }
 
-void EINT3_IRQHandler(void)
-{
-	// Clear pending interrupt.
-	LPC_GPIOINT->IO0IntClr |= (1 << 4);
-
-	if ((LPC_GPIO0->FIOPIN0) & (1 << 6))
-	{
-		stepDirPosition++;
-		stepDirPositionStepperMotor++;
-	}
-
-	else
-	{
-		stepDirPosition--;
-		stepDirPositionStepperMotor--;
-	}
-
-
-	StepperMotorCommutation();
-}
+//void EINT3_IRQHandler(void)
+//{
+//	// Clear pending interrupt.
+//	LPC_GPIOINT->IO0IntClr |= (1 << 4);
+//
+//	if ((LPC_GPIO0->FIOPIN0) & (1 << 6))
+//	{
+//		stepDirPosition++;
+//		stepDirPositionStepperMotor++;
+//	}
+//
+//	else
+//	{
+//		stepDirPosition--;
+//		stepDirPositionStepperMotor--;
+//	}
+//
+//
+//	StepperMotorCommutation();
+//}
 
 long long int GetstepDirPosition()
 {

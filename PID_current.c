@@ -3,7 +3,7 @@
 #include "MCPWM_moje.h"
 
 
-int historySampleQuantity=0;
+int historySampleQuantity1=0;
 // TODO: Wczytywanie ustawieñ z pliku, i mo¿liosc edycji ustawien z terminala
 struct PID_parameters
 {
@@ -18,7 +18,7 @@ struct PID_parameters
 	int y_max; //ograniczenie na sygna³ z góry
 	int y_min; // ograniczenie na dygna³ z do³u
 	long int uchyb;
-	int SettedCurrent;
+	int SetCurrent;
 	int y;
 };
 
@@ -27,14 +27,14 @@ int PID_LastResult[2]={0};
 //Create array of PID_parameters
 struct PID_parameters danePID[2] =
 {
-{ .Kp = 0.05, .Kd = 0, .Ki = 0.1, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
-		-127, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent =2070, .y=0 },
-{ .Kp = 1, .Kd = 0, .Ki = 0, .uchyb_1 = 0, .I_1 = 0, .y_max = 127, .y_min =
-		-127, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SettedCurrent = 2600, .y=0 } };
+{ .Kp = 0.1, .Kd = 0, .Ki = 0, .uchyb_1 = 0, .I_1 =0, .y_max = 500, .y_min =
+		-500, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SetCurrent =-200, .y=0 },
+{ .Kp = 0.1, .Kd = 0, .Ki = 0, .uchyb_1 = 0, .I_1 = 0, .y_max = 500, .y_min =
+		-500, .P = 0, .I = 0, .D = 0, .uchyb = 0, .SetCurrent = -200, .y=0 } };
 
 void Set_PIDcurrent(int _historySampleQuantity)
 {
-	historySampleQuantity=_historySampleQuantity;
+	historySampleQuantity1=_historySampleQuantity;
 }
 
 double CurrentPID(int adcInputChannelNumber)
@@ -45,7 +45,7 @@ double CurrentPID(int adcInputChannelNumber)
 
 	//Count current error between setted current value and MovingAverage from value of current.
 	danePID[adcInputChannelNumber].uchyb =
-			danePID[adcInputChannelNumber].SettedCurrent
+			danePID[adcInputChannelNumber].SetCurrent
 					- MovingAverage(adcInputChannelNumber);
 
 	//Count P, I, D member.

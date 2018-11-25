@@ -3,7 +3,8 @@
 #endif
 
 #define SIN_TAB_quantity 6000
-#define SIN_TAB_RESOLUTION 1022
+#define SIN_TAB_RESOLUTION 5000
+//#define SIN_TAB_RESOLUTION 1022
 
 const int SIN_TAB[SIN_TAB_quantity] =
 { 511, 512, 512, 513, 513, 514, 514, 515, 515, 516, 516, 517, 517, 518, 518,

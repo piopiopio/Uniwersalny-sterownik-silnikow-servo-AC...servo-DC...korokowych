@@ -16,7 +16,7 @@ int Set_MCPWM(char parameter, double frequency);
 
 //Change frequency of sinus wave and it's amplitude.
 //Amplitude value must be from range <0, SIN_TAB_RESOLUTION/2>
-void Change_MCPWM(double frequency, int* amplitude);
+void Change_MCPWM(double frequency, int* amplitude, int* sign);
 
 //In case of emergency lock MCPWM outputs.
 void Lock_MCPWM();
@@ -29,13 +29,16 @@ void Unlock_MCPWM();
 void SineOutput(volatile int* currentSampleNumber);
 
 //Function responsible for setting MCPWM outputs to control stepper motor.
-void StepperMotorCommutation();
+//void StepperMotorCommutation();
 
 //Function responsible for printing setted PWM value on each of three MCPWM output.
 void PrintThreePhaseMCPWMSettedOutput();
 
 //Check if to mosfet output's in each half bridge are high in the same time.
 void  SecurityCheck();
+
+//Function do short circuit for test short circuit protection.
+void DoShortCircuit();
 #endif
 
 
